@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datalytis – Marketing Intern | Tuyển dụng 2025</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #f8f7f4;
+    --white: #ffffff;
+    --navy: #1a1a2e;
+    --navy-mid: #2d2d5a;
+    --blue: #4361c2;
+    --blue-light: #e8f0fd;
+    --border: #e2e0db;
+    --text: #1a1a2e;
+    --muted: #6b6b80;
+    --divider: #ece9e3;
+    --success: #2a9d6e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* Topbar */
+  .topbar {
+    background: var(--navy);
+    color: #fff;
+    padding: 13px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .topbar-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .topbar-brand::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: #4cc9f0;
+    border-radius: 50%;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 64px 40px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(67,97,194,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .hero-breadcrumb {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: #4cc9f0; }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+  .meta-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: #4cc9f0; flex-shrink: 0; }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #4361c2;
+    color: #fff;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  }
+  .hero-cta:hover { background: #3451b2; box-shadow: 0 8px 28px rgba(67,97,194,0.4); transform: translateY(-2px); }
+  .hero-cta .arrow { font-size: 18px; transition: transform 0.18s; }
+  .hero-cta:hover .arrow { transform: translateX(4px); }
+
+  /* Body layout */
+  .body-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .body-wrap { grid-template-columns: 1fr; padding: 32px 20px 60px; }
+    .hero { padding: 44px 20px 40px; }
+    .topbar { padding: 12px 20px; }
+    .sidebar { order: -1; }
+  }
+
+  /* Section cards */
+  .section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: '';
+    width: 3px; height: 16px;
+    background: var(--blue);
+    border-radius: 2px;
+  }
+
+  .jd-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .jd-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #3a3a5c;
+    line-height: 1.6;
+  }
+  .jd-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .train-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .train-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #3a3a5c;
+    line-height: 1.6;
+    background: var(--blue-light);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .train-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--blue);
+    background: #fff;
+    border: 1px solid #c5d5f8;
+    width: 22px; height: 22px;
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Sidebar */
+  .side-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .side-card-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .info-row { display: flex; flex-direction: column; gap: 12px; }
+  .info-item { display: flex; flex-direction: column; gap: 2px; }
+  .info-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .info-value { font-size: 13px; font-weight: 600; color: var(--text); }
+  .info-value.highlight { color: var(--success); font-size: 15px; }
+  .divider-sm { height: 1px; background: var(--divider); margin: 14px 0; }
+
+  .client-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .client-chip {
+    font-size: 11px; font-weight: 600;
+    color: var(--navy-mid);
+    background: #f0f0f8;
+    border: 1px solid #ddddf0;
+    padding: 4px 10px;
+    border-radius: 5px;
+  }
+
+  .partner-list { display: flex; flex-direction: column; gap: 8px; }
+  .partner-item {
+    font-size: 12px; color: #3a3a5c;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 6px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .partner-item::before { content: '→'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+  /* CTA bottom banner */
+  .cta-card {
+    background: var(--navy);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .cta-card p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.6; }
+  .cta-btn {
+    display: inline-block;
+    background: #4361c2;
+    color: #fff;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.18s, transform 0.18s;
+  }
+  .cta-btn:hover { background: #3451b2; transform: translateY(-1px); }
+  .cta-note { font-size: 11px; color: rgba(255,255,255,0.35); font-family: 'JetBrains Mono', monospace; margin-top: 12px; }
+
+  /* Footer */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  .fade-in { animation: fadeUp 0.5s ease both; }
+  .fade-in:nth-child(2){animation-delay:.06s}
+  .fade-in:nth-child(3){animation-delay:.12s}
+  .fade-in:nth-child(4){animation-delay:.18s}
+  @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<nav class="topbar">
+  <div class="topbar-brand">Datalytis JSC</div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb">Datalytis JSC &nbsp;/&nbsp; Tuyển dụng &nbsp;/&nbsp; Marketing</div>
+    <h1>Marketing <span>Intern</span><br>Performance Marketing</h1>
+    <div class="hero-meta">
+      <div class="meta-chip"><span class="dot"></span>TP. Hồ Chí Minh</div>
+      <div class="meta-chip"><span class="dot"></span>Online + Offline</div>
+      <div class="meta-chip"><span class="dot"></span>Sinh viên / Part-time</div>
+      <div class="meta-chip"><span class="dot"></span>1.5 – 3 triệu VND/tháng</div>
+      <div class="meta-chip"><span class="dot"></span>Tuyển ngay</div>
+    </div>
+    <a href="datalytis_intern_form.html" class="hero-cta">
+      Ứng tuyển ngay <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- Body -->
+<div class="body-wrap">
+
+  <main class="main">
+
+    <!-- Mô tả công việc -->
+    <div class="section fade-in">
+      <div class="section-title">Mô tả công việc</div>
+      <ul class="jd-list">
+        <li>Tham gia các chiến dịch Digital Marketing cho khách hàng hoặc sản phẩm của đối tác phát triển thị trường</li>
+        <li>Tìm kiếm thông tin & xử lý dữ liệu trên Social Media</li>
+        <li>Hỗ trợ xây dựng nội dung & quản lý Fanpage, TikTok</li>
+        <li>Lập kế hoạch và triển khai chiến dịch Email Marketing</li>
+        <li>Các công việc hỗ trợ khác theo yêu cầu của quản lý</li>
+      </ul>
+    </div>
+
+    <!-- Yêu cầu -->
+    <div class="section fade-in">
+      <div class="section-title">Yêu cầu công việc</div>
+      <ul class="jd-list">
+        <li>Đang là sinh viên các ngành học có liên quan đến Marketing & Data</li>
+        <li>Đam mê và có định hướng theo đuổi ngành Marketing & Data</li>
+        <li>Nhanh nhạy, tích cực, có khả năng quản lý thời gian, làm việc độc lập và làm việc nhóm</li>
+        <li>Có kỹ năng cơ bản về tin học văn phòng (Excel)</li>
+        <li>Có quan tâm và hiểu biết đến các công cụ triển khai Digital Marketing</li>
+      </ul>
+    </div>
+
+    <!-- Phúc lợi & Đào tạo -->
+    <div class="section fade-in">
+      <div class="section-title">Phúc lợi & Đào tạo</div>
+      <ul class="train-list">
+        <li><span class="train-num">1</span>Ứng dụng AI trong phát triển nội dung quảng cáo: Bài viết, Video, Banner và sử dụng Canva</li>
+        <li><span class="train-num">2</span>Phân tích & xử lý dữ liệu</li>
+        <li><span class="train-num">3</span>Hệ thống Automation Marketing, Email Marketing</li>
+        <li><span class="train-num">4</span>Social Seeding</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+
+    <!-- Thông tin vị trí -->
+    <div class="side-card">
+      <div class="side-card-title">Thông tin vị trí</div>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="info-label">Loại công việc</span>
+          <span class="info-value">Thực tập sinh</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Hình thức</span>
+          <span class="info-value">Online + Offline</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Địa điểm</span>
+          <span class="info-value">Quận 4, TP.HCM</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Độ tuổi</span>
+          <span class="info-value">20 – 25 tuổi</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Bằng cấp</span>
+          <span class="info-value">Cao đẳng / Đại học</span>
+        </div>
+        <div class="divider-sm"></div>
+        <div class="info-item">
+          <span class="info-label">Mức hỗ trợ</span>
+          <span class="info-value highlight">1.5 – 3 triệu/tháng</span>
+        </div>
+        <div class="info-item" style="background:#fff8ed; border:1px solid #fde8c0; border-radius:6px; padding:8px 10px;">
+          <span class="info-label" style="color:#b06000;">Lưu ý</span>
+          <span class="info-value" style="font-size:12px; color:#7a4500; font-weight:500;">2 tháng đầu học việc chưa nhận lương</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Khách hàng -->
+    <div class="side-card">
+      <div class="side-card-title">Khách hàng tiêu biểu</div>
+      <div class="client-grid">
+        <span class="client-chip">Abbott</span>
+        <span class="client-chip">VinFast</span>
+        <span class="client-chip">An Gia</span>
+        <span class="client-chip">AIA</span>
+        <span class="client-chip">AquaCity</span>
+        <span class="client-chip">Novaland</span>
+        <span class="client-chip">MSB</span>
+        <span class="client-chip">Lazada</span>
+        <span class="client-chip">Sendo</span>
+        <span class="client-chip">Swanbay</span>
+        <span class="client-chip">Notifood</span>
+        <span class="client-chip">NgocDung</span>
+        <span class="client-chip" style="background:#1a1a2e; color:#fff; border-color:#1a1a2e;">+200 khác</span>
+      </div>
+    </div>
+
+    <!-- Đối tác -->
+    <div class="side-card">
+      <div class="side-card-title">Đối tác phát triển thị trường</div>
+      <div class="partner-list">
+        <div class="partner-item">TheAlita.com – Top 5 DaaS</div>
+        <div class="partner-item">Socialheat.net – Social Listening & AI</div>
+        <div class="partner-item">Moban.vn – Nền tảng Proptech</div>
+        <div class="partner-item">eMailBase.net – Email Marketing</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- CTA Bottom -->
+<div class="cta-card">
+  <p>Quan tâm đến vị trí này?<br>Gửi hồ sơ ngay hôm nay!</p>
+  <a href="datalytis_intern_form.html" class="cta-btn">Ứng tuyển ngay →</a>
+  <div class="cta-note">Info@Datalytis.com</div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  © 2025 Datalytis JSC &nbsp;·&nbsp; Datalytis.com
+</footer>
+
+</body>
+</html>
